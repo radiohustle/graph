@@ -15,5 +15,30 @@
   "bugs": {
     "url": "https://github.com/radiohustle/graph/issues"
   },
-  "homepage": "https://github.com/radiohustle/graph#readme"
+  "homepage": "https://github.com/radiohustle/graph#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "browser-sync": "^2.26.3",
+    "browserify": "^16.2.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-watch": "^5.0.1",
+    "rimraf": "^2.6.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "cytoscape": "^3.2.20",
+    "cytoscape-cose-bilkent": "^4.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.1"
+  }
 }

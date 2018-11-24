@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Dance Graph</title>
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
+
+	<style>
+	#root {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 25px;
+		z-index: 999;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<input id="code-input" value="6472" />
+		<button type="button" id="add-tree-button">
+			create tree
+		</button>
+		<button type="button" id="zoom-dancer-button">
+			go to dancer
+		</button>
+	</div>
+	<div id="root"></div>
+
+	<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>
