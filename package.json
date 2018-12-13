@@ -37,6 +37,11 @@
   "dependencies": {
     "cytoscape": "^3.2.20",
     "cytoscape-cose-bilkent": "^4.0.0",
+    "cytoscape-euler": "^1.2.1",
+    "d3": "^5.7.0",
+    "d3-force": "^1.1.2",
+    "d3-hierarchy": "^1.1.8",
+    "d3-polygon": "^1.0.5",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.1"

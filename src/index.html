@@ -3,6 +3,9 @@
 	<title>Dance Graph</title>
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://mbostock.github.io/d3/talk/20111116/d3/d3.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.io/d3/talk/20111116/d3/d3.geom.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.io/d3/talk/20111116/d3/d3.layout.js"></script>
 
 	<style>
 	#root {
@@ -12,6 +15,18 @@
 		left: 0;
 		top: 25px;
 		z-index: 999;
+	}
+
+	circle.node {
+	  cursor: pointer;
+	  stroke: #000;
+	  stroke-width: .5px;
+	}
+
+	line.link {
+	  fill: none;
+	  stroke: #9ecae1;
+	  stroke-width: 1.5px;
 	}
 	</style>
 </head>

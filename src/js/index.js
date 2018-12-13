@@ -1,14 +1,16 @@
 const cytoscape = require('cytoscape')
 const coseBilkent = require('cytoscape-cose-bilkent')
+const euler = require('cytoscape-euler')
 const fetch = require('isomorphic-fetch')
 const $ = require('jquery')
 
 const Core = require('./core.js')
-const Stack = require('./entities/Stack.js')
+const Queue = require('./entities/Queue.js')
 
 const _core = new Core()
 
-cytoscape.use(coseBilkent)
+// cytoscape.use(coseBilkent)
+cytoscape.use(euler)
 
 const dancersWithAvatar = ['06472', '06776', '04870', '06149', '06274', '06534', '05992', '06887', '06905', '06763', '06289', '06338', '00822', '08046', '04061', '09197', '00000', '05898', '07325']
 
@@ -128,7 +130,7 @@ const initGraph = ({
                         'curve-style': 'haystack',
                         'width': 1,
                         'line-color': '#dddddd',
-                        'opacity': 0.25,
+                        'opacity': 0.75,
                     }
                 }, {
                     selector: '.no-avatar',
@@ -249,19 +251,27 @@ const initGraph = ({
                 code,
                 graph
             }) => {
-                const stack = new Stack()
+                const queue = new Queue()
                 const _edges = []
                 const map = {}
 
-                stack.push(getNodeByCode(code))
+                queue.push({
+                    ...getNodeByCode(code),
+                    depth: 0
+                })
 
                 map[code] = true
 
                 let isRealtimeUpdate = true
                 let countAdded = 0
 
-                while (!stack.isEmpty()) {
-                    const node = stack.pop()
+                while (!queue.isEmpty()) {
+                    const node = queue.pop()
+                    const {
+                        depth
+                    } = node
+
+                    console.log(depth)
 
                     graph.add(node)
 
@@ -316,10 +326,13 @@ const initGraph = ({
                     })
 
                     _nodes.forEach(node => {
-                        stack.push(node)
+                        depth < 5 && queue.push({
+                            ...node,
+                            depth: depth + 1
+                        })
                     })
 
-                    console.log('stack.size', stack.size())
+                    console.log('queue.size', queue.size())
                 }
 
                 // await rerunLayout({
@@ -335,7 +348,7 @@ const initGraph = ({
                 await rerunLayout({
                     name: 'breadthfirst',
                     circle: true,
-                    spacingFactor: 3,
+                    spacingFactor: 25,
                     roots: `#${code}`,
                     // concentric: node => {
                     // return node.degree()
